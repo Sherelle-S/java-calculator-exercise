@@ -23,4 +23,62 @@ public class CalculatorTests {
 
         assertEquals(-2, difference);
     }
+
+    @Test
+    @DisplayName("multiply two numbers")
+    public void testMultiply(){
+        final Integer product = Calculator.multiply(204, 10);
+
+        assertEquals(2040, product);
+    }
+
+    @Test
+    @DisplayName("multiply one positive number one negative")
+    public void testMultiplyAlmostNegative(){
+        final Integer product = Calculator.multiply(2, -10);
+        assertEquals(-20, product);
+    }
+
+    @Test
+    @DisplayName("multiply two negative number")
+    public void multiplyNegativeNumbers(){
+        final Integer product = Calculator.multiply(-2, -10);
+        assertEquals(20, product);
+    }
+
+    @Test
+    @DisplayName("multiply a zore with positive number")
+    public void zeroMultiplyPositiveN(){
+        final Integer product = Calculator.multiply(0, 10);
+        assertEquals(0, product);
+    }
+
+    @Test
+    @DisplayName("Divide two numbers")
+    public void testDivide(){
+        final Integer product = Calculator.divide(20, 10);
+
+        assertEquals(2, product);
+    }
+
+    @Test
+    @DisplayName("divide one positive number one negative")
+    public void testDivideAlmostNegative(){
+        final Integer product = Calculator.divide(20, -10);
+        assertEquals(-2, product);
+    }
+
+    @Test
+    @DisplayName("divide two negative number")
+    public void divideNegativeNumbers(){
+        final Integer product = Calculator.divide(-20, -10);
+        assertEquals(2, product);
+    }
+
+    @Test
+    @DisplayName("divide a zore with positive number")
+    public void zeroDividePositiveN(){
+        final Integer product = Calculator.divide(0, 10);
+        assertEquals(0, product);
+    }
 }
