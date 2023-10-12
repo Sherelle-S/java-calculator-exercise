@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName(value = "The Calculator should")
 public class CalculatorTests {
@@ -47,7 +48,7 @@ public class CalculatorTests {
     }
 
     @Test
-    @DisplayName("multiply a zore with positive number")
+    @DisplayName("multiply a zero with positive number")
     public void zeroMultiplyPositiveN(){
         final Integer product = Calculator.multiply(0, 10);
         assertEquals(0, product);
@@ -76,9 +77,18 @@ public class CalculatorTests {
     }
 
     @Test
-    @DisplayName("divide a zore with positive number")
-    public void zeroDividePositiveN(){
+    @DisplayName("divide a zero by positive number")
+    public void positiveNDivideZero(){
         final Integer product = Calculator.divide(0, 10);
         assertEquals(0, product);
+    }
+
+    @Test
+    @DisplayName("divide a zero by positive number")
+    public void zeroDividePositiveN (){
+        // final Integer product = Calculator.divide(10, 0);
+        assertThrows(ArithmeticException.class, () -> {
+            Calculator.divide(10, 0);
+        });
     }
 }
