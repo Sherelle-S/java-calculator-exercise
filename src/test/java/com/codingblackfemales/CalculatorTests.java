@@ -18,11 +18,43 @@ public class CalculatorTests {
     }
 
     @Test
+    @DisplayName("add one negative numbers")
+    public void testNegativeAddition() {
+        final Integer sum = Calculator.add(-2, 4);
+
+        assertEquals(2, sum);
+    }
+
+    @Test
+    @DisplayName("add two negative numbers")
+    public void testNegativeNumsAddition() {
+        final Integer sum = Calculator.add(-2, -4);
+
+        assertEquals(-6, sum);
+    }
+
+    @Test
     @DisplayName("subtract two numbers")
     public void testSubtraction() {
         final Integer difference = Calculator.subtract(2, 4);
 
         assertEquals(-2, difference);
+    }
+
+    @Test
+    @DisplayName("sub one negative numbers")
+    public void testNegativeSubtraction() {
+        final Integer sum = Calculator.subtract(-2, 4);
+
+        assertEquals(-6, sum);
+    }
+
+    @Test
+    @DisplayName("sub two negative numbers")
+    public void testNegativeNumsSubtraction() {
+        final Integer sum = Calculator.subtract(-2, -4);
+
+        assertEquals(2, sum);
     }
 
     @Test
@@ -86,7 +118,6 @@ public class CalculatorTests {
     @Test
     @DisplayName("divide a zero by positive number")
     public void zeroDividePositiveN (){
-        // final Integer product = Calculator.divide(10, 0);
         assertThrows(ArithmeticException.class, () -> {
             Calculator.divide(10, 0);
         });
